@@ -10,6 +10,6 @@ public class TreeNodeTest
 	@Test
 	public void TreeNodeTest()
 	{
-		//Assert.assertNotNull(new TreeNode());
+		Assert.assertNotNull(new TreeNode("yes"));
 	}
 }

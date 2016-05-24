@@ -226,7 +226,7 @@ public class LinkedListTree implements Tree
 	@Override
 	public boolean isEmpty() 
 	{
-		if (linkedList.left == null && linkedList.right == null)
+		if (linkedList == null)
 		{
 			return true;
 		}

@@ -10,6 +10,11 @@ public class LinkedListTreeTest
 	LinkedListTree llt = new LinkedListTree();
 
 	@Test
+	public void LinkedListTreeTTest()
+	{
+		Assert.assertNotNull(new LinkedListTree());
+	}
+	@Test
 	public void addTest()
 	{
 		llt.add("hello");
@@ -26,6 +31,7 @@ public class LinkedListTreeTest
 	@Test
 	public void getPreOrderTest()
 	{
+		Assert.assertEquals(llt.getInOrder(), "");
 		llt.add("hello");
 		llt.add("ant");
 		llt.add("yes");
@@ -38,6 +44,7 @@ public class LinkedListTreeTest
 	@Test
 	public void getInOrderTest()
 	{
+		Assert.assertEquals(llt.getInOrder(), "");
 		llt.add("hello");
 		llt.add("ant");
 		llt.add("yes");
@@ -50,6 +57,7 @@ public class LinkedListTreeTest
 	@Test
 	public void getPostOrderTest()
 	{
+		Assert.assertEquals(llt.getPreOrder(), "");
 		llt.add("hello");
 		llt.add("ant");
 		llt.add("yes");
@@ -64,6 +72,7 @@ public class LinkedListTreeTest
 	{
 		llt.add("hello");
 		llt.add("ant");
+		Assert.assertEquals(llt.getHeight(), 2);
 		llt.add("yes");
 		llt.add("bark");
 		llt.add("zeb");	
@@ -78,6 +87,7 @@ public class LinkedListTreeTest
 	public void getNumberOfLeafsTest()
 	{
 	llt.add("hello");
+	Assert.assertEquals(llt.getNumberOfLeafs(), 1);
 	llt.add("ant");
 	llt.add("yes");
 	llt.add("bark");
@@ -95,7 +105,9 @@ public class LinkedListTreeTest
 		llt.add("yes");
 		llt.add("bark");
 		llt.add("zeb");
-		System.out.println(llt.searchFor("zeb"));
+		llt.searchFor("zeb");
+		llt.searchFor("heb");
+		
 	}
 	
 	@Test
@@ -136,5 +148,6 @@ public class LinkedListTreeTest
 		llt.add("zeb");
 		Assert.assertEquals(llt.isEmpty(), false);
 		llt.deleteTree();
+		Assert.assertEquals(llt.isEmpty(), true);
 	}
 }
