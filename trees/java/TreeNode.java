@@ -11,7 +11,7 @@ public class TreeNode
 	public TreeNode right;
 	/**
 	 * 
-	 * @param item
+	 * @param item String added to the tree
 	 */
 	public TreeNode(String item)
 	{

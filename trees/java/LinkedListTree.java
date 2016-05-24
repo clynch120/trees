@@ -3,17 +3,18 @@ package trees.java;
 /**
  * 
  * @author Charles
- *
+ *	Linked List Tree
  */
 public class LinkedListTree implements Tree
 {
+	
+	private TreeNode linkedList = null;	// linked list tree
+	private int nodes = 0;	// keep track of nodes
+
 	/**
-	 * 
+	 * adds an item to the tree 
+	 * uses private method if needed
 	 */
-
-	private TreeNode linkedList = null;
-	private int nodes = 0;
-
 	@Override
 	public void add(String item) 
 	{
@@ -32,7 +33,15 @@ public class LinkedListTree implements Tree
 		}
 		nodes++;
 	}
-
+	
+	/**
+	 * 
+	 * @param tn takes a TreeNode 
+	 * @param item takes a String item 
+	 * @returns a TreeNode object
+	 * private method used if more than one 
+	 * item is in tree
+	 */
 	private TreeNode addHelper(TreeNode tn, String item)
 	{
 		if (tn == null) 
@@ -56,7 +65,8 @@ public class LinkedListTree implements Tree
 	}
 
 	/**
-	 * 
+	 * calls private method to get and return
+	 *  pre order traversal of tree
 	 */
 	@Override
 	public String getPreOrder() 
@@ -65,7 +75,12 @@ public class LinkedListTree implements Tree
 		helpGetPreOrder(linkedList, sb);
 		return sb.toString();
 	}
-
+	/**
+	 *  private method to retutn pre order traversal
+	 * @param t takes a TreeNode object
+	 * @param sb takes a StringBuffer object
+	 * @return String of pre order tree traversal
+	 */
 	private String helpGetPreOrder(TreeNode t, StringBuffer sb)
 	{
 		if (t != null)
@@ -77,7 +92,8 @@ public class LinkedListTree implements Tree
 		return sb.toString();
 	}
 	/**
-	 * 
+	 * calls private method to get and return
+	 *  in order traversal of tree
 	 */
 	@Override
 	public String getInOrder() 
@@ -86,7 +102,12 @@ public class LinkedListTree implements Tree
 		helpGetInOrder(linkedList, sb);
 		return sb.toString();
 	}
-
+	/**
+	 * private method to return in order traversal
+	 * @param t takes a TreeNode object
+	 * @param sb takes a StringBuffer object
+	 * @return String of in order tree traversal
+	 */
 	private String helpGetInOrder(TreeNode t, StringBuffer sb)
 	{
 		if (t != null)
@@ -98,7 +119,8 @@ public class LinkedListTree implements Tree
 		return sb.toString();
 	}
 	/**
-	 * 
+	 * calls private method to get and return
+	 *  post order traversal of tree
 	 */
 	@Override
 	public String getPostOrder() 
@@ -107,7 +129,12 @@ public class LinkedListTree implements Tree
 		helpGetPostOrder(linkedList, sb);
 		return sb.toString();
 	}
-
+	/**
+	 * private method to return post order traversal
+	 * @param t takes a TreeNode object
+	 * @param sb takes a StringBuffer object
+	 * @return String of post order tree traversal
+	 */
 	private String helpGetPostOrder(TreeNode t, StringBuffer sb)
 	{
 		if (t != null)
@@ -119,14 +146,18 @@ public class LinkedListTree implements Tree
 		return sb.toString();
 	}
 	/**
-	 * 
+	 * returns int height of tree
 	 */
 	@Override
 	public int getHeight() 
 	{
 		return helpGetHeight(linkedList);
 	}
-
+	/**
+	 * 
+	 * @param tn takes TreeNode object
+	 * @return height of tree
+	 */
 	private int helpGetHeight(TreeNode tn)
 	{
 		if (tn == null)
@@ -146,14 +177,18 @@ public class LinkedListTree implements Tree
 		}
 	}
 	/**
-	 * 
+	 * returns int of number of leafs on tree
 	 */
 	@Override
 	public int getNumberOfLeafs() 
 	{
 		return leafCounter(linkedList);
 	}
-
+	/**
+	 * 
+	 * @param tn takes TreeNode object
+	 * @return leafs on the tree
+	 */
 	private int leafCounter(TreeNode tn)
 	{
 		if (tn == null)
@@ -170,14 +205,19 @@ public class LinkedListTree implements Tree
 		}
 	}
 	/**
-	 * 
+	 * returns TreeNode of searched for item
 	 */
 	@Override
 	public TreeNode searchFor(String item) 
 	{
 		return helpSearchFor(linkedList, item);
 	}
-
+	/**
+	 * 	
+	 * @param tn takes TreeNode object
+	 * @param item takes a String to search the tree 
+	 * @return TreeNode of item searched for
+	 */
 	private TreeNode helpSearchFor(TreeNode tn, String item)
 	{
 		TreeNode temp = tn;
@@ -201,10 +241,9 @@ public class LinkedListTree implements Tree
 			}
 		}
 		return temp;
-
 	}
 	/**
-	 * 
+	 * deletes the tree
 	 */
 	@Override
 	public void deleteTree() 
@@ -213,7 +252,7 @@ public class LinkedListTree implements Tree
 		linkedList = null;
 	}
 	/**
-	 * 
+	 * returns int of nodes
 	 */
 	@Override
 	public int getHowManyNodes() 
@@ -221,7 +260,7 @@ public class LinkedListTree implements Tree
 		return nodes;
 	}
 	/**
-	 * 
+	 * checks if the tree has any nodes
 	 */
 	@Override
 	public boolean isEmpty() 
@@ -232,5 +271,4 @@ public class LinkedListTree implements Tree
 		}
 		return false;
 	}
-
 }
